@@ -19,7 +19,6 @@ public class App
     	StudentService dao = new StudentServiceImpl();
     	List<StudentVO> list = new ArrayList<StudentVO>();
     	list = dao.selectListStudent();
-    	
         for(StudentVO vo : list) {
             vo.toString();
          }

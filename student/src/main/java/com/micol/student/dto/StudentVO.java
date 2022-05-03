@@ -2,6 +2,9 @@ package com.micol.student.dto;
 
 import java.sql.Date;
 
+import lombok.Data;
+@Data
+
 public class StudentVO { //DTO
 	// 컬럼명과 똑같이 설정할 것
 	private String studentId;
@@ -12,53 +15,53 @@ public class StudentVO { //DTO
 
 	private String tel;
 
-	public String getStudentId() {
-		return studentId;
-	}
-
-	public void setStudentId(String studentId) {
-		this.studentId = studentId;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-
-	public String getMajor() {
-		return major;
-	}
-
-	public void setMajor(String major) {
-		this.major = major;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
+//	public String getStudentId() {
+//		return studentId;
+//	}
+//
+//	public void setStudentId(String studentId) {
+//		this.studentId = studentId;
+//	}
+//
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//	public Date getBirthday() {
+//		return birthday;
+//	}
+//
+//	public void setBirthday(Date birthday) {
+//		this.birthday = birthday;
+//	}
+//
+//	public String getMajor() {
+//		return major;
+//	}
+//
+//	public void setMajor(String major) {
+//		this.major = major;
+//	}
+//
+//	public String getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(String address) {
+//		this.address = address;
+//	}
+//
+//	public String getTel() {
+//		return tel;
+//	}
+//
+//	public void setTel(String tel) {
+//		this.tel = tel;
+//	}
 
 	@Override
 	public String toString() {

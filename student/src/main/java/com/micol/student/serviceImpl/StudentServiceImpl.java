@@ -16,6 +16,7 @@ public class StudentServiceImpl implements StudentService{
 	private Connection conn = dataSource.getConnection(); //connection
 	private PreparedStatement psmt; //sql 명령실행
 	private ResultSet rs; //select 결과를 담음
+	
 
 	@Override
 	public List<StudentVO> selectListStudent() {//전체 학생 목록
