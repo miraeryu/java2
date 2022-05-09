@@ -22,13 +22,13 @@ public class App
         for(StudentVO vo : list) {
             vo.toString();
          }
-//        
-//        //한명 조회
-//        System.out.println("===========================================");
-//        StudentVO student = new StudentVO();
-//        student.setStudentId("park@abc.com");
-//        student = dao.selectStudentVO(student);
-//        student.toString();
+        
+        //한명 조회
+        System.out.println("===========================================");
+        StudentVO student = new StudentVO();
+        student.setStudentId("park@abc.com");
+        student = dao.selectStudentVO(student);
+        student.toString();
         
     	
     	//학생추가
