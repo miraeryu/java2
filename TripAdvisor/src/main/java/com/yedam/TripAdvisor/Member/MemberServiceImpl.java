@@ -30,6 +30,8 @@ public class MemberServiceImpl implements MemberService {
 			n = psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 		
 		System.out.println("회원가입 성공. 로그인을 해주세요.");
@@ -50,9 +52,21 @@ public class MemberServiceImpl implements MemberService {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 		
 		return sigh;
+	}
+	
+	public void close() {
+		try {
+			if(rs != null) rs.close();
+			if(psmt != null) psmt.close();
+			if(conn != null) conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 

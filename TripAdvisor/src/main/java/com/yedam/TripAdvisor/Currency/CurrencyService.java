@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.xml.crypto.Data;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -19,8 +21,9 @@ public class CurrencyService {
 	private static CurrencyInfo info = new CurrencyInfo();
 	private static final String autokey = "YxIGPjJqE0b0aaEcUbNafkTqaK9tWnrt";
 
-	public static double getCurrencyInfomation(String country) {
-		double searchCurrency = 0;
+	public static Double getCurrencyInfomation(String country) {
+		String searchCurrency = null;
+		double currency_deal = 0;
 		String serviceURL = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?";
 //		List<PropertiesPair> params = new ArrayList<PropertiesPair>();
 //		params.add(new PropertiesPair("autokey",autokey));
@@ -52,9 +55,9 @@ public class CurrencyService {
 						JSONObject o = (JSONObject) infomation.get(i);
 //						JSONObject infom = (JSONObject) o;
 						if (o.get("cur_unit").equals(country)) {
-							
-							System.out.println(o.get("deal_bas_r"));
-							searchCurrency = Double.parseDouble((String) o.get("deal_bas_r"));
+							searchCurrency = (String) o.get("deal_bas_r");
+							String change = searchCurrency.replaceAll(",", "");
+							currency_deal = Double.parseDouble(change);
 						}
 
 					}
@@ -92,7 +95,7 @@ public class CurrencyService {
 //	      }
 
 //	      System.out.println(info.toString());
-		return searchCurrency;
+		return currency_deal;
 
 //		CurrencyInfo result = new Gson().fromJson([JsonArray].toSring(), CurrencyInfo.class);
 

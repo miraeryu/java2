@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 @Data
 @AllArgsConstructor
-public class PropertiesPair {
+public class PropertiesPair {//사용안함
 	private String key;
 	private String value;
 	

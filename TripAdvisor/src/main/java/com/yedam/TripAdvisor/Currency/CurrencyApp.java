@@ -8,7 +8,8 @@ public class CurrencyApp {
 		System.out.println();
 		System.out.println("****************************");
 		System.out.println("통화를 선택하세요.");
-		
+		currencyListone CList = new currencyListone(); 
+		CList.CurList1();
 		
 	}
 }
