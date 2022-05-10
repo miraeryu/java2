@@ -4,10 +4,13 @@ import java.util.Scanner;
 
 import com.yedam.TripAdvisor.Main;
 import com.yedam.TripAdvisor.Currency.CurrencyApp;
+import com.yedam.TripAdvisor.Member.MemberVO;
+
+import MyPage.MypageMethod;
 
 public class AppList {
 	
-	Scanner sc = new Scanner(System.in);
+
 	
 	// 메뉴 출력 1.~5.
 	public void MainList() {
@@ -24,6 +27,7 @@ public class AppList {
 		System.out.println("**4.환율계산기");
 		System.out.println("**5.로그아웃");
 		System.out.print(">>");
+		Scanner sc = new Scanner(System.in);
 		int menuselect = sc.nextInt();
 		boolean run = true;
 		while (run) {
@@ -61,6 +65,31 @@ public class AppList {
 
 	// 메뉴3.
 	private static void Mypage() {
+		System.out.println("****************************");
+		System.out.println();
+		System.out.println("        마 이 페 이 지         ");
+		System.out.println();
+		System.out.println("****************************");
+		System.out.println("1.내정보\n2.관심여행지\n3.내게시글\n4.돌아가기");
+		System.out.println("입력>>");
+		Scanner sc = new Scanner(System.in);
+		int mypageSelect = sc.nextInt();
+		boolean run = true;
+		MypageMethod mypageMethod = new MypageMethod();
+		while(run) {
+			switch(mypageSelect) {
+			case 1:
+				//실행되는지 확인 필요
+				MemberVO member = new MemberVO();
+				member.toString();
+			case 2:
+				
+			case 3:
+			case 4:
+				System.out.println("메뉴로 돌아갑니다.");
+				return;
+			}
+		}
 
 	}
 

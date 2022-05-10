@@ -9,8 +9,8 @@ public class App
 {
     public static void main( String[] args )
     {
-//    	Main main = new Main();
-//    	main.Start();
+    	Main main = new Main();
+    	main.Start();
 //    	Scanner sc = new Scanner(System.in);
 //    	System.out.println("원하는 국가 입력");
 //    	System.out.print(">>");
@@ -18,8 +18,8 @@ public class App
 //    	CurrencyService cs = new CurrencyService();
 //    	CurrencyService.getCurrencyInfomation(nation);
 //    	System.out.println(CurrencyService.getCurrencyInfomation(nation));
-    	currencyListone list = new currencyListone();
-    	list.execute();
+//    	currencyListone list = new currencyListone();
+//    	list.execute();
     }
 }
 
