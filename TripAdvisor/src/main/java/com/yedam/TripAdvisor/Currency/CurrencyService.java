@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,22 +25,18 @@ public class CurrencyService {
 	public static Double getCurrencyInfomation(String country) {
 		String searchCurrency = null;
 		double currency_deal = 0;
+		Date now = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		String strNow = sdf.format(now);
 		String serviceURL = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?";
-//		List<PropertiesPair> params = new ArrayList<PropertiesPair>();
-//		params.add(new PropertiesPair("autokey",autokey));
-//		params.add(new PropertiesPair("searchdate","20220509"));
-//		params.add(new PropertiesPair("data","AP01"));
 		String AuthKey = "YxIGPjJqE0b0aaEcUbNafkTqaK9tWnrt";
-		String SearchDate = "20220509";
+		String SearchDate = strNow ;
 		String dataType = "AP01";
 
 		StringBuilder sb = new StringBuilder();
 		try {
-//			String paramURL = PropertiesPair.getQuery(params);
 			String requestURL = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=" + AuthKey
 					+ "&searchdate=" + SearchDate + "&data=" + dataType;
-//			String requestURL = serviceURL + paramURL;
-			// System.out.println(requestURL);
 			URL url = new URL(requestURL);
 
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -47,13 +44,11 @@ public class CurrencyService {
 				BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
 				String line;
 				while ((line = br.readLine()) != null) {
-//					sb.append(line);
 					JSONParser parser = new JSONParser();
 					JSONArray infomation = null;
 					infomation = (JSONArray) parser.parse(line);
-					for (int i = 0; i<infomation.size(); i++) {
+					for (int i = 0; i < infomation.size(); i++) {
 						JSONObject o = (JSONObject) infomation.get(i);
-//						JSONObject infom = (JSONObject) o;
 						if (o.get("cur_unit").equals(country)) {
 							searchCurrency = (String) o.get("deal_bas_r");
 							String change = searchCurrency.replaceAll(",", "");

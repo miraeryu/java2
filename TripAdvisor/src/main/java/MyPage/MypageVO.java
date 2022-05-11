@@ -3,30 +3,25 @@ package MyPage;
 import java.util.Date;
 
 import lombok.Data;
+
 @Data
 public class MypageVO {
-	private String subject;
+	private String title;
 	private String index;
 	private int BoardNum;
 	private String writer;
 	private Date writeDate;
-	
-	
-	
-	public List<MypageVO>(String subject, int boardNum, Date writeDate) {
+
+	public MypageVO(String title, int boardNum, Date writeDate) {
 		super();
-		this.subject = subject;
+		this.title = title;
 		BoardNum = boardNum;
 		this.writeDate = writeDate;
 	}
 
-
-
-	public String toString() {
-		return "MypageVO [subject=" + subject + ", index=" + index + ", BoardNum=" + BoardNum + ", writer=" + writer
+	public String toString() { //게시글 조회 toString
+		return "MypageVO [subject=" + title + ", index=" + index + ", BoardNum=" + BoardNum + ", writer=" + writer
 				+ ", writeDate=" + writeDate + "]";
 	}
-	
-	
 
 }

@@ -11,7 +11,7 @@ import com.yedam.TripAdvisor.dao.DataSource;
 public class MemberServiceImpl implements MemberService {
 	
 	private DataSource dao = DataSource.getInstance();
-	private Connection conn = dao.getConnection();
+	private Connection conn;
 	private PreparedStatement psmt;
 	private ResultSet rs;
 	
@@ -23,6 +23,7 @@ public class MemberServiceImpl implements MemberService {
 		int n = 0;
 		String sql = "INSERT INTO MEMBER VALUES(?,?,?)";
 		try {
+			conn = dao.getConnection(); 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getMemberId());
 			psmt.setString(2, vo.getMemberPw());
@@ -43,19 +44,20 @@ public class MemberServiceImpl implements MemberService {
 		MemberVO sigh = new MemberVO();
 		String sql = "select * from MEMBER where member_id = ?";
 		try {
+			conn = dao.getConnection(); 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getMemberId());
 			rs = psmt.executeQuery();
 			if(rs.next()){
 				sigh.setMemberId(rs.getString("member_id"));
 				sigh.setMemberPw(rs.getString("member_pw"));
+				sigh.setMemberName(rs.getString("member_name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
-			close();
+		} finally {
+			close(); 
 		}
-		
 		return sigh;
 	}
 	

@@ -35,9 +35,4 @@ public class CurrencyDataImpl implements CurrencyData {
 		return list;
 	}
 
-	@Override
-	public String cur_code_load() {
-		return null;
-	}
-
 }

@@ -10,6 +10,7 @@ public class MemberLog {
 	private String userName;
 	Scanner sc = new Scanner(System.in);
 	AppList applist = new AppList();
+	public static MemberVO nowUser = new MemberVO();
 
 	MemberServiceImpl memberservice = new MemberServiceImpl();
 
@@ -53,12 +54,12 @@ public class MemberLog {
 		check.setMemberPw(loginPw);
 		check.setMemberName(null);
 
-		memberservice.Login(check);
 		// 아이디와 비밀번호를 DB와 대조하여 맞으면 로그인 성공
 		if (loginId != null && loginPw != null) {
 			if (check.getMemberId().equals(memberservice.Login(check).getMemberId())
 					&&check.getMemberPw().equals(memberservice.Login(check).getMemberPw())) {
 				System.out.println("로그인 성공");
+				nowUser = memberservice.Login(check);
 				applist.MainList();
 			}else {
 				System.out.println("로그인 실패");
