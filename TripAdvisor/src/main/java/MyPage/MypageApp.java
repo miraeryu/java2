@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.yedam.TripAdvisor.Currency.CurrencyDataImpl;
 import com.yedam.TripAdvisor.Currency.CurrencyDataVO;
+import com.yedam.TripAdvisor.List.AppList;
 import com.yedam.TripAdvisor.Member.MemberLog;
 import com.yedam.TripAdvisor.Member.MemberServiceImpl;
 import com.yedam.TripAdvisor.Member.MemberVO;
@@ -38,6 +39,8 @@ public class MypageApp {
 				break;
 			case 4:
 				System.out.println("메뉴로 돌아갑니다.");
+//				AppList applist = new AppList();
+//				applist.MainList();
 				break;
 			}
 		}
